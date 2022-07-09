@@ -12,11 +12,10 @@ std::vector<int> wide_search(std::vector<std::vector<int>> adj_matrix, int point
 	if (point >= adj_matrix.size())
 		return way;
 
-	std::vector<bool> labelled;
-	labelled.resize(adj_matrix.size());
+	std::vector<bool> labelled(adj_matrix.size());
 	
-	std::vector<int> last_point;
-	last_point.resize(adj_matrix.size());
+	std::vector<int> last_point(adj_matrix.size());
+	
 	for (int i = 0; i < last_point.size(); i++)
 		last_point[i] = -1;
 
@@ -79,13 +78,11 @@ void random_fill(std::vector<std::vector<int>>& adj_matrix, int size) {
 
 
 int main() {
-	std::vector<std::vector<int>> adj_matrix;
-
 	int size;
 	int point;
 
 	std::cin >> size >> point;
-	adj_matrix.resize(size);
+	std::vector<std::vector<int>> adj_matrix(size);
 
 	for (int i = 0; i < size; i++)
 		adj_matrix[i].resize(size);
